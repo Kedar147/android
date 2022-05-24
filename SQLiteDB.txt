@@ -1,0 +1,331 @@
+//MainActivity.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/Widget.AppCompat.TextView"
+        android:layout_width="398dp"
+        android:layout_height="49dp"
+        android:text="Please Enter The Details Below"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter ID "
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Address"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Phone No."
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnShow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="191dp"
+        android:layout_height="50dp"
+        android:text="Show Details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnInsert"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.894" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnUpdate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.894" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnUpdate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.894" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+//MainActivity.java
+
+package com.example.sqllitedb;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    EditText id,name,address,phone_no;
+    Button btnShow,btnInsert,btnUpdate,btnDelete;
+    dbHelper DB;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        id = findViewById(R.id.editText);
+        name = findViewById(R.id.editText2);
+        address = findViewById(R.id.editText3);
+        phone_no = findViewById(R.id.editText4);
+        btnInsert = findViewById(R.id.btnInsert);
+        btnDelete = findViewById(R.id.btnDelete);
+        btnUpdate = findViewById(R.id.btnUpdate);
+        btnShow = findViewById(R.id.btnShow);
+        DB = new dbHelper(this);
+
+        btnInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idTEXT = id.getText().toString();
+                String nameTEXT = name.getText().toString();
+                String addressTEXT = address.getText().toString();
+                String phone_noTEXT = phone_no.getText().toString();
+
+                Boolean checkinsertdata = DB.insertcustomerdata(idTEXT,nameTEXT,addressTEXT,phone_noTEXT);
+
+                if(checkinsertdata == true){
+                    Toast.makeText(MainActivity.this, "New Entry Inserted", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "New Entry Not Inserted", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idTEXT = id.getText().toString();
+                String nameTEXT = name.getText().toString();
+                String addressTEXT = address.getText().toString();
+                String phone_noTEXT = phone_no.getText().toString();
+
+                Boolean checkupdatedata = DB.updatecustomerdata(idTEXT,nameTEXT,addressTEXT,phone_noTEXT);
+
+                if(checkupdatedata == true){
+                    Toast.makeText(MainActivity.this, "Entry Updated", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Entry Not Updated", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idTEXT = id.getText().toString();
+                Boolean checkdeletedata = DB.deletecustomerdata(idTEXT);
+
+                if(checkdeletedata == true){
+                    Toast.makeText(MainActivity.this, "Entry Deleted", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Entry Not Deleted", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res = DB.getdata();
+                if(res.getCount()==0){
+                    Toast.makeText(MainActivity.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                StringBuffer buffer = new StringBuffer();
+                while (res.moveToNext()){
+                    buffer.append("Id:"+res.getString(0)+"\n");
+                    buffer.append("Name:"+res.getString(1)+"\n");
+                    buffer.append("Address:"+res.getString(2)+"\n");
+                    buffer.append("Phone_no:"+res.getString(3)+"\n");
+                }
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Customer Entries");
+                builder.setMessage(buffer.toString());
+                builder.show();
+            }
+        });
+    }
+}
+
+
+//dbHelper.java
+Path = app>java>com.example.---->new>java class (name - dbHelper)
+
+package com.example.sqllitedb;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+
+public class dbHelper extends SQLiteOpenHelper {
+    public dbHelper(Context context) {
+        super(context, "Customerdata.db", null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase DB) {
+        DB.execSQL("Create Table Customerdetails(id TEXT primary key,name TEXT,address TEXT,phone_no TEXT)");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
+        DB.execSQL("drop Table if exists Customerdetails");
+    }
+    public Boolean insertcustomerdata(String id,String name,String address,String phone_no) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id", id);
+        contentValues.put("name", name);
+        contentValues.put("address", address);
+        contentValues.put("phone_no", phone_no);
+        long result = DB.insert("Customerdetails", null, contentValues);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean updatecustomerdata(String id,String name,String address,String phone_no) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("address", address);
+        contentValues.put("phone_no", phone_no);
+
+        Cursor cursor =DB.rawQuery("Select * from Customerdetails where id=?",new String[]{id});
+
+        if(cursor.getCount()>0) {
+            long result = DB.update("Customerdetails", contentValues, "id=?", new String[]{id});
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }else {
+            return false;
+        }
+    }
+
+
+    public Boolean deletecustomerdata(String id) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+
+        Cursor cursor =DB.rawQuery("Select * from Customerdetails where id=?",new String[]{id});
+
+        if(cursor.getCount()>0) {
+            long result = DB.delete("Customerdetails","id=?", new String[]{id});
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }else {
+            return false;
+        }
+    }
+
+    public Cursor getdata() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+
+        Cursor cursor =DB.rawQuery("Select * from Customerdetails", null);
+        return cursor;
+    }
+
+}

@@ -1,0 +1,99 @@
+//MainActivity.xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPTION MENU"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+//ActivityMain.java
+
+package com.example.menu_application;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int item_id=item.getItemId();
+
+        if(item_id==R.id.maths){
+            Toast.makeText(this, "You Have Selected Maths Subject", Toast.LENGTH_SHORT).show();
+        }
+        else if(item_id==R.id.java){
+            Toast.makeText(this, "You Have Selected Java Subject", Toast.LENGTH_SHORT).show();
+        }
+        else if(item_id==R.id.python){
+            Toast.makeText(this, "You Have Selected Python Subject", Toast.LENGTH_SHORT).show();
+        }
+        else if(item_id==R.id.android){
+            Toast.makeText(this, "You Have Selected Android Subject", Toast.LENGTH_SHORT).show();
+        }
+        else if(item_id==R.id.database){
+            Toast.makeText(this, "You Have Selected Database Subject", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+}
+
+
+//menu_item.xml
+
+path = res>new>android resource directory (give name as menu) > menu directory will create under res then menu>new>Menu Resource file> (give name as menu_item)
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/maths"
+        android:title="Maths" />
+    <item
+        android:id="@+id/java"
+        android:title="Java" />
+    <item
+        android:id="@+id/python"
+        android:title="Python" />
+    <item
+        android:id="@+id/android"
+        android:title="Android" />
+    <item
+        android:id="@+id/database"
+        android:title="Database" />
+</menu>

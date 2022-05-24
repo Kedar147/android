@@ -1,0 +1,441 @@
+//MainActivity.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="1pt"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:layout_weight="1"
+        android:background="@color/black"
+        android:gravity="right|center"
+        android:textColor="@color/black"
+        android:textSize="20pt"
+        android:inputType="textPersonName"
+        android:text="0" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_marginBottom="1pt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnSeven"
+                android:text="@string/_7"
+                android:onClick="numberEvent"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnEight"
+                android:text="@string/_8"
+                android:layout_marginRight="1pt"
+                android:onClick="numberEvent"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnNine"
+                android:text="@string/_9"
+                android:layout_marginRight="1pt"
+                android:onClick="numberEvent"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnDivide"
+                android:text="@string/div"
+                android:onClick="operatorEvent"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_marginBottom="1pt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnFour"
+                android:text="@string/_4"
+                android:layout_marginRight="1pt"
+                android:onClick="numberEvent"
+                android:textColor="@color/white"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnFive"
+                android:text="@string/_5"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:textColor="@color/white"
+                android:onClick="numberEvent"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnSix"
+                android:text="@string/_6"
+                android:layout_marginRight="1pt"
+                android:onClick="numberEvent"
+                android:layout_height="30pt"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnMultiply"
+                android:text="@string/multiply"
+                android:onClick="operatorEvent"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginBottom="1pt"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnOne"
+                android:text="@string/one"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:onClick="numberEvent"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnTwo"
+                android:text="@string/two"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:onClick="numberEvent"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnThree"
+                android:text="@string/three"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:textColor="@color/white"
+                android:onClick="numberEvent"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnMinus"
+                android:text="@string/minus"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:onClick="operatorEvent"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1pt">
+            <Button
+                android:id="@+id/btnAC"
+                android:text="@string/percent"
+                android:layout_marginRight="1pt"
+                android:onClick="percentEvent"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnZero"
+                android:text="@string/zero"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:onClick="numberEvent"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnDot"
+                android:text="."
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:onClick="numberEvent"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+            <Button
+                android:id="@+id/btnPlus"
+                android:text="@string/plus"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:onClick="operatorEvent"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginBottom="1pt"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnC"
+                android:text="@string/cancel"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:layout_width="30pt"
+                android:onClick="clearEvent"
+                android:background="@color/purple_200"
+                ></Button>
+
+            <Button
+                android:id="@+id/btnEqual"
+                android:text="@string/equal"
+                android:layout_marginRight="1pt"
+                android:layout_height="30pt"
+                android:layout_weight="1"
+                android:onClick="equalEvent"
+                android:textColor="@color/white"
+                android:layout_width="30pt"
+                android:background="@color/purple_200"
+                ></Button>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
+
+//Strings.xml
+
+Path= res>values>strings.xml
+
+<resources>
+        <string name="app_name">Calculator</string>
+        <string name="_9">9</string>
+        <string name="div">/</string>
+        <string name="_8">8</string>
+        <string name="_7">7</string>
+        <string name="_4">4</string>
+        <string name="_5">5</string>
+        <string name="_6">6</string>
+        <string name="multiply">*</string>
+        <string name="one">1</string>
+        <string name="two">2</string>
+        <string name="three">3</string>
+        <string name="minus">-</string>
+        <string name="ac">AC</string>
+        <string name="zero">0</string>
+        <string name="plus">+</string>
+        <string name="cancel">C</string>
+        <string name="equal">=</string>
+        <string name="percent">%</string>
+</resources>
+
+//MainActivity.java
+
+package com.example.calculator;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+    boolean isNewOperator = true;
+    EditText edt1;
+    String operator = "+";
+    String initialNumber = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        edt1 = findViewById(R.id.editText);
+    }
+
+
+    public void numberEvent(View view) {
+
+        if(isNewOperator)
+            edt1.setText("");
+        isNewOperator = false;
+
+        String number = edt1.getText().toString();
+
+        if(view.getId() == R.id.btnOne){
+            number += "1";
+        }
+        else if(view.getId() == R.id.btnTwo){
+            number += "2";
+        }
+        else if(view.getId() == R.id.btnThree){
+            number += "3";
+        }
+        else if(view.getId() == R.id.btnFour){
+            number += "4";
+        }
+        else if(view.getId() == R.id.btnFive){
+            number += "5";
+        }
+        else if(view.getId() == R.id.btnSix){
+            number += "6";
+        }
+        else if(view.getId() == R.id.btnSeven){
+            number += "7";
+        }
+        else if(view.getId() == R.id.btnEight){
+            number += "8";
+        }
+        else if(view.getId() == R.id.btnNine){
+            number += "9";
+        }
+        else if(view.getId() == R.id.btnZero){
+            number += "0";
+        }
+
+        else if(view.getId() == R.id.btnDot){
+            number += ".";
+        }
+
+        edt1.setText(number);
+
+    }
+
+    public void operatorEvent(View view) {
+
+        isNewOperator =true;
+        initialNumber = edt1.getText().toString();
+
+        if(view.getId() == R.id.btnMultiply){
+            operator = "*";}
+
+        else if(view.getId() == R.id.btnMinus){
+            operator = "-";}
+
+        else if(view.getId() == R.id.btnDivide){
+            operator = "/";}
+
+        else if(view.getId() == R.id.btnPlus){
+            operator = "+";
+        }
+
+
+    }
+
+    public void equalEvent(View view) {
+        String newNumber = edt1.getText().toString();
+        double output = 0.0;
+
+        if(operator == "+")
+            output = Double.parseDouble(initialNumber) + Double.parseDouble(newNumber);
+
+        if(operator == "/")
+            output = Double.parseDouble(initialNumber) / Double.parseDouble(newNumber);
+
+        if(operator == "*")
+            output = Double.parseDouble(initialNumber) * Double.parseDouble(newNumber);
+
+        if(operator == "-")
+            output = Double.parseDouble(initialNumber) - Double.parseDouble(newNumber);
+
+        edt1.setText(output+"");
+
+    }
+
+
+    public void clearEvent(View view) {
+        edt1.setText("0");
+        isNewOperator = true;
+    }
+
+    public void percentEvent(View view) {
+        double num = Double.parseDouble(edt1.getText().toString())/100;
+        edt1.setText(num+"");
+        isNewOperator = true;
+
+    }
+}
